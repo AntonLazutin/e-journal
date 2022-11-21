@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="group-content" style="
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -0.75rem 0;
+    border: solid #dee2e6;
+    border-width: 1px 0 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Код</th>
+                <th scope="col">Кол-во студентов</th>
+                <th scope="col">Обновить</th>
+                <th scope="col">Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in object_list %}
+                    <tr>
+                        <th scope="row">{{group.id}}</th>
+                        <td>{{group.code}}</td>
+                        <td>{{group.students.count}}</td>
+                        <td><a class="btn btn-success" href="{% url 'update_group' group.id %}">Обновить</a></td>
+                        <td><a class="btn btn-danger" href="{% url 'delete_group' group.id %}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'add_group' %}">Добавить группу</a>
+    </div>
+{% endblock content %}

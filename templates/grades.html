@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Оценки студента {{object}}</h1>
+    <div class="students-content" style="
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -0.75rem 0;
+    border: solid #dee2e6;
+    border-width: 1px 0 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Дисциплина</th>
+                <th scope="col">Оценка</th>
+                <th scope="col">Обновить</th>
+                <th scope="col">Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grade in grades %}
+                <tr>
+                    <th scope="row">{{grade.id}}</th>
+                    <td>{{grade.subject}}</td>
+                    <td>{{grade.digit}}</td>
+                    <td><a class="btn btn-success" href="{% url 'update_grade' grade.id %}">Обновить</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'delete_grade' grade.id %}">Удалить</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'add_grade' object.id %}">Добавить оценку</a>
+    </div>
+{% endblock content %}

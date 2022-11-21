@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="students-content" style="
+    position: relative;
+    padding: 1rem;
+    margin: 1rem -0.75rem 0;
+    border: solid #dee2e6;
+    border-width: 1px 0 0;">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Наименование</th>
+                <th scope="col">Преподаватель</th>
+                <th scope="col">Обновить</th>
+                <th scope="col">Удалить</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in object_list %}
+                    <tr>
+                        <th scope="row">{{subject.id}}</th>
+                        <td>{{subject.name}}</td>
+                        <td>{{subject.teacher}}</td>
+                        <td><a class="btn btn-success" href="{% url 'update_subject' subject.id %}">Обновить</a></td>
+                        <td><a class="btn btn-danger" href="{% url 'delete_subject' subject.id %}">Удалить</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'add_subject' %}">Добавить предмет</a>
+    </div>
+{% endblock content %}
