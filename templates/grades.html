@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1>Оценки студента {{object}}</h1>
+    <h1 class="display-4">Оценки студента {{object}}</h1>
     <div class="students-content" style="
     position: relative;
     padding: 1rem;
@@ -22,7 +21,7 @@
             <tbody>
                 {% for grade in grades %}
                 <tr>
-                    <th scope="row">{{grade.id}}</th>
+                    <th scope="row">{{ forloop.counter }}</th>
                     <td>{{grade.subject}}</td>
                     <td>{{grade.digit}}</td>
                     <td><a class="btn btn-success" href="{% url 'update_grade' grade.id %}">Обновить</a></td>

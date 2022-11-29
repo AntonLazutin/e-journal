@@ -21,7 +21,7 @@
             <tbody>
                 {% for teacher in object_list %}
                     <tr>
-                        <th scope="row">{{teacher.id}}</th>
+                        <th scope="row">{{ forloop.counter }}</th>
                         <td>{{teacher.first_name}}</td>
                         <td>{{teacher.last_name}}</td>
                         <td>

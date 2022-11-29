@@ -248,6 +248,6 @@ class GradesView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         print(context)
-        print(Student.objects.get(id=self.kwargs['pk']).grades.all())     
-        context['grades'] = Student.objects.get(id=self.kwargs['pk']).grades.all()   
+        print(Student.objects.get(id=self.kwargs['pk']).grades.all())
+        context['grades'] = Student.objects.get(id=self.kwargs['pk']).grades.all()  
         return context

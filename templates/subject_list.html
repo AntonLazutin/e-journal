@@ -20,7 +20,7 @@
             <tbody>
                 {% for subject in object_list %}
                     <tr>
-                        <th scope="row">{{subject.id}}</th>
+                        <th scope="row">{{ forloop.counter }}</th>
                         <td>{{subject.name}}</td>
                         <td>{{subject.teacher}}</td>
                         <td><a class="btn btn-success" href="{% url 'update_subject' subject.id %}">Обновить</a></td>

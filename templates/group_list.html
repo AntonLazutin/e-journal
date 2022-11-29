@@ -20,7 +20,7 @@
             <tbody>
                 {% for group in object_list %}
                     <tr>
-                        <th scope="row">{{group.id}}</th>
+                        <th scope="row">{{ forloop.counter }}</th>
                         <td>{{group.code}}</td>
                         <td>{{group.students.count}}</td>
                         <td><a class="btn btn-success" href="{% url 'update_group' group.id %}">Обновить</a></td>
